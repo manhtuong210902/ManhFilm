@@ -1,0 +1,73 @@
+@import 'normalize.css';
+@import '~bootstrap/scss/bootstrap';
+@import '~slick-carousel/slick/slick.css';
+@import '~slick-carousel/slick/slick-theme.css';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --primary: #e4d804;
+    --text-color: #f0f0f0;
+    --bg-color: #12151e;
+
+    --font-family: 'Poppins', sans-serif;
+
+    --header-height: 90px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-style: normal;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    text-rendering: optimizeSpeed;
+    //overflow-y: overlay;
+}
+
+button,
+input,
+[tabindex] {
+    outline: none;
+    border: none;
+}
+
+a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+ul {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+.App {
+    overflow: hidden;
+}
+
+//custom slick
+.dot-custom {
+    display: block;
+    background-color: #fff;
+    height: 8px;
+    width: 8px;
+    margin: 0 10px;
+    border-radius: 50%;
+}
+
+.slick-active {
+    .dot-custom {
+        background-color: var(--primary);
+    }
+}

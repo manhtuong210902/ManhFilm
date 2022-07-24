@@ -1,0 +1,42 @@
+.wrapper {
+    background-image: linear-gradient(to right, rgba(4, 8, 26, 0.66), transparent),
+        url('https://movflxx.netlify.app/img/bg/breadcrumb_bg.jpg');
+    padding: 170px 0 130px;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+}
+
+.content {
+    text-align: center;
+}
+
+.title {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--text-color);
+    span {
+        color: var(--primary);
+    }
+}
+
+.list {
+    .list-item:first-child {
+        color: var(--primary);
+        border-right: 1px solid #fff;
+    }
+
+    .list-item {
+        padding: 0 10px;
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: var(--text-color);
+        text-transform: uppercase;
+    }
+
+    .list-item:last-child {
+        border-left: 1px solid #fff;
+    }
+}
