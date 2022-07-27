@@ -24,7 +24,7 @@ function MovieItem({ style, data }) {
                     <img src={posterImg} alt="hello" onError={handleOnError} />
                     <ul className={cx('overlay-btn')}>
                         <li>
-                            <Button small={true} secondary to={`/`}>
+                            <Button small={true} secondary to={`/watch/${mediaType}/${data.id}`}>
                                 Watch Now
                             </Button>
                         </li>

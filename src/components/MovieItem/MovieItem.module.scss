@@ -23,10 +23,12 @@
 .poster {
     margin-bottom: 12px;
     position: relative;
+    aspect-ratio: 475 / 713;
     img {
         aspect-ratio: 475 / 713;
         object-fit: cover;
         object-position: center;
+        height: auto;
         max-width: 100%;
         border-radius: 5px;
     }

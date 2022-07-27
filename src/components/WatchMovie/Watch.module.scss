@@ -1,0 +1,13 @@
+.wrapper {
+    padding: 160px 0 120px;
+    background-color: var(--bg-color);
+}
+
+.video {
+    position: relative;
+    aspect-ratio: 16/9;
+    iframe {
+        border: 1px solid #27272f;
+        margin-bottom: 20px;
+    }
+}

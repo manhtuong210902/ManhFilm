@@ -74,7 +74,12 @@ function Banner() {
                                             </span>
                                         </div>
                                     </div>
-                                    <Button leftIcon={<FontAwesomeIcon icon={faPlay} />}>WATCH NOW</Button>
+                                    <Button
+                                        leftIcon={<FontAwesomeIcon icon={faPlay} />}
+                                        to={`details/movie/${banner.id}`}
+                                    >
+                                        WATCH NOW
+                                    </Button>
                                 </div>
                             </Col>
                             <Col sm={4} lg={3} className="d-none d-sm-block">
