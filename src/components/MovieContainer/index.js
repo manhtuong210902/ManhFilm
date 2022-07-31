@@ -1,12 +1,13 @@
 import classNames from 'classnames/bind';
 import styles from './MovieContainer.module.scss';
 import { Container } from 'react-bootstrap';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import axios from 'axios';
 import PreLoader from '../PreLoader';
 import MovieSlider from '../MovieSlider';
 import MovieGrid from '../MovieGrid';
 import Button from '../Button';
+// import { useLocation } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
@@ -17,6 +18,12 @@ function MovieContainer({ type, isGrid = false }) {
     //is Grid
     const [page, setPage] = useState(1);
     const [totalPage, setTotalPage] = useState(0);
+
+    useMemo(() => {
+        setMovies([]);
+        setLoading(true);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [type]);
 
     useEffect(() => {
         axios
@@ -37,8 +44,7 @@ function MovieContainer({ type, isGrid = false }) {
                 console.log(err);
                 setLoading(false);
             });
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [page]);
+    }, [page, type.api]);
 
     const handleLoadMore = () => {
         setPage(page + 1);

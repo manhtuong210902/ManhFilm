@@ -15,10 +15,6 @@
     border-bottom: 1px solid #27272f;
     border-top: 1px solid #27272f;
     margin-bottom: 20px;
-    img {
-        height: 100px;
-        object-fit: cover;
-    }
     &:hover {
         cursor: pointer;
         transition: 0.2s linear;
@@ -31,6 +27,17 @@
 
     &:hover .movie-name h1 {
         color: var(--bg-color);
+    }
+}
+
+.div-img {
+    aspect-ratio: 200 / 113;
+    height: 100px;
+    img {
+        object-fit: cover;
+        height: 100%;
+        width: auto;
+        aspect-ratio: 200 / 113;
     }
 }
 

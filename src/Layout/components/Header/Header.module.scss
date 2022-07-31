@@ -58,10 +58,17 @@
     background-color: transparent;
     font-size: 1.6rem;
     color: var(--text-color);
-    margin-right: 20px;
+    padding: 2px 15px;
+    margin-right: 12px;
+    border-right: 2px solid rgba(255, 255, 255, 0.12);
+
     &:hover {
         color: var(--primary);
     }
+}
+
+.close {
+    font-size: 2.2rem;
 }
 
 .toggle-menu-btn {
@@ -169,6 +176,10 @@
     cursor: pointer;
     border: none;
     animation: onTop 0.8s ease-in;
+    &:hover {
+        color: var(--text-color);
+        background-color: var(--bg-color);
+    }
 }
 
 //responsive

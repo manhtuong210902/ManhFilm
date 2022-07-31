@@ -8,6 +8,8 @@ import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import Button from '../Button';
 import { BG_URL, IMAGE_URL } from '~/utils/constant';
 import DesMovie from '../DesMovie';
+import images from '~/assets/images';
+import Image from '../Image';
 
 const cx = classNames.bind(styles);
 
@@ -24,9 +26,9 @@ function DetailsMovie({ data }) {
                 <Row className={cx('align-items-center')}>
                     <Col xl={3} lg={4}>
                         <div className={cx('poster')}>
-                            <img src={`${IMAGE_URL}${data.poster_path}`} alt="" className="img-fluid" />
+                            <Image src={`${IMAGE_URL}${data.poster_path}`} alt="" className="img-fluid" />
                             <Link to={`/watch/${media_type}/${id}`} className={cx('popup-video')}>
-                                <img src="https://movflxx.netlify.app/img/images/play_icon.png" alt="" />
+                                <img src={images.playIcon} alt="" />
                             </Link>
                         </div>
                     </Col>

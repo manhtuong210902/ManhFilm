@@ -8,6 +8,8 @@ import { useEffect, useRef, useState } from 'react';
 import styles from './Header.module.scss';
 import config from '~/config';
 import Button from '~/components/Button';
+import SearchHeader from '../SearchHeader';
+import images from '~/assets/images';
 const cx = classNames.bind(styles);
 const navItems = [
     {
@@ -29,13 +31,15 @@ const navItems = [
 function Header() {
     const [showMenu, setShowMenu] = useState(false);
     const [fixedHeader, setFixedHeader] = useState(false);
+    const [showSearch, setShowSearch] = useState(false);
     const location = useLocation();
 
     const headerRef = useRef();
 
     useEffect(() => {
+        setShowSearch(false);
         setShowMenu(false);
-    }, [location.pathname]);
+    }, [location.pathname, location.search]);
 
     useEffect(() => {
         const handleFixedHeader = () => {
@@ -60,6 +64,10 @@ function Header() {
         setShowMenu(!showMenu);
     };
 
+    const handleToggleSearch = () => {
+        setShowSearch(!showSearch);
+    };
+
     const handleOnTop = () => {
         window.scrollTo({
             top: 0,
@@ -74,7 +82,7 @@ function Header() {
                 <header className={cx('header')}>
                     <div>
                         <Link to="/">
-                            <img src="https://movflxx.netlify.app/img/logo/logo.png" alt="logo" />
+                            <img src={images.logo} alt="logo" className="logo" />
                         </Link>
                     </div>
 
@@ -91,18 +99,23 @@ function Header() {
                     </ul>
 
                     <div className={cx('action')}>
-                        <span className={'d-none d-md-flex'}>
-                            <button className={cx('search-btn')}>
+                        <button className={cx('search-btn')} onClick={handleToggleSearch}>
+                            {!showSearch ? (
                                 <FontAwesomeIcon icon={faMagnifyingGlass} />
-                            </button>
-                            <Button>Sign Up</Button>
-                        </span>
+                            ) : (
+                                <FontAwesomeIcon icon={faXmark} className={cx('close')} />
+                            )}
+                        </button>
+                        <Button className={'d-none d-md-flex'}>Sign Up</Button>
+
                         <button className={cx('toggle-menu-btn', 'd-md-none')} onClick={handleToggleMenu}>
                             <FontAwesomeIcon icon={faBars} />
                         </button>
                     </div>
                 </header>
             </Container>
+            {/* Search destop */}
+            {showSearch ? <SearchHeader /> : <></>}
             {/* Menu mobile */}
             {showMenu && (
                 <div className={cx('nav-modal')}>
@@ -110,7 +123,7 @@ function Header() {
                         <header className={cx('nav-header')}>
                             <div>
                                 <Link to="/">
-                                    <img src="https://movflxx.netlify.app/img/logo/logo.png" alt="logo" />
+                                    <img src={images.logo} alt="logo" />
                                 </Link>
                             </div>
                             <button className={cx('nav-close-btn')} onClick={handleToggleMenu}>
@@ -131,11 +144,10 @@ function Header() {
                     </div>
                 </div>
             )}
-            {/* Search destop */}
             {/* Scroll Top Btn */}
             {fixedHeader ? (
                 <button className={cx('scroll-top-btn')}>
-                    <FontAwesomeIcon icon={faAngleUp} onClick={handleOnTop} />
+                    <FontAwesomeIcon icon={faAngleUp} onMouseDown={handleOnTop} />
                 </button>
             ) : (
                 <></>

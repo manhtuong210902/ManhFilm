@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useParams, useSearchParams } from 'react-router-dom';
 import PreLoader from '~/components/PreLoader';
 import { API_KEY, BASE_URL } from '~/utils/constant';
+import MovieContainer from '~/components/MovieContainer';
 
 function Watch() {
     const { media_type, id } = useParams();
@@ -11,10 +12,21 @@ function Watch() {
     const [loading, setLoading] = useState(true);
     const [searchParam] = useSearchParams();
     const episode = searchParam.get('episode') || 1;
+    const [type, setType] = useState({});
     const api =
         media_type === 'tv'
             ? `${BASE_URL}/${media_type}/${id}/season/1/episode/${episode}`
             : `${BASE_URL}/${media_type}/${id}`;
+
+    useEffect(() => {
+        setType({
+            type: `${media_type}`,
+            title: 'Similar',
+            subTitle: 'Similar movie genres',
+            api: `${BASE_URL}/${media_type}/${id}/similar?api_key=${API_KEY}`,
+        });
+    }, [media_type, id]);
+
     useEffect(() => {
         axios
             .get(api, {
@@ -36,7 +48,12 @@ function Watch() {
     }, [episode, api]);
 
     if (loading) return <PreLoader />;
-    return <WatchMovie data={data} />;
+    return (
+        <>
+            <WatchMovie data={data} />
+            {media_type === 'tv' ? <MovieContainer type={type} /> : <></>}
+        </>
+    );
 }
 
 export default Watch;

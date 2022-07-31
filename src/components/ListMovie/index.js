@@ -3,7 +3,8 @@ import styles from './ListMovie.module.scss';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { API_KEY, BASE_URL } from '~/utils/constant';
+import { API_KEY, BASE_URL, IMG_SMALL_URL } from '~/utils/constant';
+import Image from '../Image';
 
 const cx = classNames.bind(styles);
 
@@ -57,7 +58,14 @@ function ListMovie() {
                             handleOnClick(media_type, movie);
                         }}
                     >
-                        <img src={`https://image.tmdb.org/t/p/w200/${src}`} alt="" className={'img-fluid'} />
+                        <div className={cx('div-img')}>
+                            <Image
+                                src={`${IMG_SMALL_URL}${src}`}
+                                alt=""
+                                className={'img-fluid'}
+                                fallback="https://image.tmdb.org/t/p/w200//kSDmLv74PQCjSW2KrWvwlVXbT5A.jpg"
+                            />
+                        </div>
                         <div className={cx('movie-name')}>
                             <h1>{movie.episode_number ? `Episode ${movie.episode_number}` : ''}</h1>
                             <h3>{title}</h3>

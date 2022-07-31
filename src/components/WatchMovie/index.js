@@ -4,6 +4,7 @@ import classNames from 'classnames/bind';
 import DesMovie from '../DesMovie';
 import ListMovie from '../ListMovie';
 import styles from './Watch.module.scss';
+import { VIDEO_URL } from '~/utils/constant';
 
 const cx = classNames.bind(styles);
 
@@ -17,7 +18,7 @@ function WatchMovie({ data }) {
                             <iframe
                                 width="100%"
                                 height={'100%'}
-                                src={`https://2embed.org/embed/${data.id}`}
+                                src={`${VIDEO_URL}${data.id}`}
                                 title="Movie player"
                                 frameBorder="0"
                                 allowFullScreen
