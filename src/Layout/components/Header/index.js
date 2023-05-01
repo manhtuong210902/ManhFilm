@@ -43,7 +43,6 @@ function Header() {
     const [showPopup, setShowPopup] = useState(false);
     const location = useLocation();
     const popupRef = useRef(null);
-
     const headerRef = useRef();
 
     const { user } = useContext(AuthContext);
@@ -252,12 +251,6 @@ function Header() {
                         )}
 
                         <ul className={cx('nav-mobile-list')}>
-                            {!user && (
-                                <li className={cx('nav-mobile-item')}>
-                                    <Link className={cx('nav-mobile-item-link')}>Sign Up</Link>
-                                </li>
-                            )}
-
                             {navItems.map((Item, index) => {
                                 return (
                                     <li className={cx('nav-mobile-item')} key={index}>
@@ -267,9 +260,17 @@ function Header() {
                                     </li>
                                 );
                             })}
+
+                            {user && (
+                                <li className={cx('nav-mobile-item')}>
+                                    <Link to={config.routes.favorites} className={cx('nav-mobile-item-link')}>
+                                        Favorites
+                                    </Link>
+                                </li>
+                            )}
                         </ul>
 
-                        {user && (
+                        {user ? (
                             <div className={cx('popup-footer')}>
                                 <Button
                                     onClick={() => {
@@ -279,6 +280,10 @@ function Header() {
                                 >
                                     Logout
                                 </Button>
+                            </div>
+                        ) : (
+                            <div className={cx('popup-footer')}>
+                                <Button onClick={handleSignUpWithGoogle}>Sign Up</Button>
                             </div>
                         )}
                     </div>
