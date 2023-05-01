@@ -5,6 +5,7 @@ import { useParams, useSearchParams } from 'react-router-dom';
 import PreLoader from '~/components/PreLoader';
 import { API_KEY, BASE_URL } from '~/utils/constant';
 import MovieContainer from '~/components/MovieContainer';
+import Comment from '~/components/Comment';
 
 function Watch() {
     const { media_type, id } = useParams();
@@ -51,6 +52,7 @@ function Watch() {
     return (
         <>
             <WatchMovie data={data} />
+            <Comment movie_id={data.id} />
             {media_type === 'tv' ? <MovieContainer type={type} /> : <></>}
         </>
     );

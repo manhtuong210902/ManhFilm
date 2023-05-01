@@ -1,7 +1,7 @@
 import { Row } from 'react-bootstrap';
 import MovieItem from '../MovieItem';
 
-function MovieSlider({ movies, className }) {
+function MovieGrid({ movies, className }) {
     return (
         <Row className={className}>
             {movies &&
@@ -12,4 +12,4 @@ function MovieSlider({ movies, className }) {
     );
 }
 
-export default MovieSlider;
+export default MovieGrid;

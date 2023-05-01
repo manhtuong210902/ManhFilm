@@ -1,5 +1,6 @@
 const routes = {
     home: '/',
+    favorites: '/favorites',
     movies: '/movies',
     tvshow: '/tv_show',
     details: '/details/:media_type/:id',

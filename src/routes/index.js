@@ -5,6 +5,7 @@ import TVShow from '~/pages/TVShow';
 import Details from '~/pages/Details';
 import Watch from '~/pages/Watch';
 import Search from '~/pages/Search';
+import MyFavorites from '~/pages/MyFavorites';
 
 //Public Routes
 const publicRoutes = [
@@ -16,6 +17,6 @@ const publicRoutes = [
     { path: config.routes.search, component: Search },
 ];
 
-const privateRoutes = [];
+const privateRoutes = [{ path: config.routes.favorites, component: MyFavorites }];
 
 export { publicRoutes, privateRoutes };

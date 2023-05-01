@@ -12,8 +12,8 @@ function Breadcrumb({ data }) {
         <div
             className={cx('wrapper')}
             style={{
-                backgroundImage: `linear-gradient(to right, rgba(4, 8, 26, 0.66), transparent), url(
-                    ${images.breadcrumn})`,
+                backgroundImage: `linear-gradient(to bottom, rgba(4, 8, 26, 0.7), transparent), url(
+                    ${data.image ? data.image : images.breadcrumn})`,
             }}
         >
             <Container>

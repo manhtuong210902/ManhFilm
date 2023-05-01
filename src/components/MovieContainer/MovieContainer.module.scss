@@ -54,6 +54,21 @@
     margin-left: -15px;
 }
 
+.empty-item {
+    text-align: center;
+    padding: 20px 0 60px;
+    p {
+        font-weight: 400;
+        font-size: 1.8rem;
+        color: #fff;
+        margin: 0;
+        .search-item {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+    }
+}
+
 .btn-loadmore {
     padding: 10px 0 60px;
     display: flex;

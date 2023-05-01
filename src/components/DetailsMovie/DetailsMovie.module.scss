@@ -27,6 +27,20 @@
     margin-left: 23px;
 }
 
+.list-btn {
+    display: flex;
+    gap: 16px;
+    .btn-add {
+        max-width: 246px;
+        &:hover {
+            background-color: var(--bg-color);
+            color: #f85d5d;
+            border-color: #f85d5d;
+        }
+        margin-left: 0;
+    }
+}
+
 @media (max-width: 991.98px) {
     .content {
         margin-left: 0px;
@@ -35,5 +49,11 @@
     .poster {
         max-width: 303px;
         margin: 0 auto 50px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .list-btn {
+        flex-direction: column;
     }
 }

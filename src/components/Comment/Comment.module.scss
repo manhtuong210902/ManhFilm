@@ -1,0 +1,130 @@
+.custom-container {
+    padding-top: 60px;
+    padding-bottom: 50px;
+}
+
+.section-title {
+    text-align: left;
+    margin-bottom: 55px;
+}
+
+.sub-title {
+    display: block;
+    line-height: 1;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 500;
+    position: relative;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+    color: var(--primary);
+}
+
+.title {
+    font-size: 3.6rem;
+    font-weight: 700;
+    color: var(--bg-color);
+}
+
+.item {
+    padding: 0 60px;
+    margin-bottom: 60px;
+}
+
+.item-wrapper {
+    display: flex;
+    gap: 30px;
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+}
+
+.detail {
+    h3 {
+        font-weight: 500;
+    }
+
+    span {
+        font-weight: 400;
+        color: #999;
+        font-size: 1.2rem;
+        margin-bottom: 16px;
+        display: block;
+    }
+
+    p {
+        margin-bottom: 0;
+        font-size: 1.4rem;
+        font-weight: 400;
+    }
+}
+
+.your-comment {
+    padding: 40px 0;
+    textarea {
+        width: 100%;
+        padding: 12px 16px;
+        border-radius: 4px;
+        border: 1px solid var(--bg-color);
+        margin-bottom: 20px;
+    }
+
+    .btn-submit {
+        border-radius: 4px;
+        float: right;
+        &:hover {
+            background-color: var(--bg-color);
+            color: #fff;
+            border-color: var(--bg-color);
+        }
+    }
+}
+
+.no-comment {
+    text-align: center;
+    padding: 50px 0;
+    border: 1px dashed #999;
+    p {
+        margin-bottom: 0;
+    }
+
+    .start {
+        margin-top: 20px;
+        cursor: pointer;
+        color: var(--primary);
+    }
+}
+//<=md
+@media (max-width: 991.98px) {
+    .title {
+        font-size: 3.2rem;
+    }
+
+    .section-title {
+        text-align: center;
+    }
+
+    .item-wrapper {
+        flex-direction: column;
+    }
+
+    .item {
+        padding: 0 20px;
+    }
+}
+
+//<=sm
+@media (max-width: 767.98px) {
+    .title {
+        font-size: 3rem;
+    }
+
+    .item {
+        padding: 0 20px;
+    }
+}

@@ -1,7 +1,9 @@
 import { useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Layout from './Layout';
-import { publicRoutes } from './routes';
+import { privateRoutes, publicRoutes } from './routes';
+import AuthProvider from './context/AuthProvider';
+import PrivateRoute from './components/PrivateRoute';
 
 function App() {
     const location = useLocation();
@@ -12,22 +14,41 @@ function App() {
 
     return (
         <div className="App">
-            <Routes>
-                {publicRoutes.map((route, index) => {
-                    const Page = route.component;
-                    return (
-                        <Route
-                            key={index}
-                            path={route.path}
-                            element={
-                                <Layout>
-                                    <Page />
-                                </Layout>
-                            }
-                        />
-                    );
-                })}
-            </Routes>
+            <AuthProvider>
+                <Routes>
+                    {publicRoutes.map((route, index) => {
+                        const Page = route.component;
+                        return (
+                            <Route
+                                key={index}
+                                path={route.path}
+                                element={
+                                    <Layout>
+                                        <Page />
+                                    </Layout>
+                                }
+                            />
+                        );
+                    })}
+
+                    <Route element={<PrivateRoute />}>
+                        {privateRoutes.map((route, index) => {
+                            const Page = route.component;
+                            return (
+                                <Route
+                                    key={index}
+                                    path={route.path}
+                                    element={
+                                        <Layout>
+                                            <Page />
+                                        </Layout>
+                                    }
+                                />
+                            );
+                        })}
+                    </Route>
+                </Routes>
+            </AuthProvider>
         </div>
     );
 }
